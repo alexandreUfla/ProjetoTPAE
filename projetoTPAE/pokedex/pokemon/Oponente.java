@@ -1,38 +1,62 @@
 package pokedex.pokemon;
+
 import pokedex.pokemon.tipo.*;
 import menu.Main;
 
-public class Oponente{
+/**
+ * A classe {@code Oponente} representa o Pokémon oponente escolhido pelo jogador
+ * no menu principal. Baseia-se na escolha feita pelo usuário e inicializa o tipo
+ * do oponente como Planta, Fogo ou Água.
+ * <p>
+ * Esta classe utiliza a classe {@link AtributosBasePokemon} para herdar atributos básicos,
+ * mas atualmente, não realiza ataques ou cálculos de dano.
+ */
+public class Oponente {
 
-    private int escolhaOponente = menu.Main.escolha_oponente;
+    private int escolhaOponente = Main.escolha_oponente;
+    private Planta tipoPlanta;
+    private Fogo tipoFogo;
+    private Agua tipoAgua;
+    private AtributosBasePokemon atributos = new AtributosBasePokemon();
 
-    if(escolhaOponente == 1){
-        pokedex.pokemon.tipo.planta tipoPlanta = new planta();
-    }else if(escolhaOponente == 2){
-        pokedex.pokemon.tipo.fogo tipoFogo = new fogo();
-    }else if(escolhaOponente == 3){
-        pokedex.pokemon.tipo.agua tipoAgua = new agua();
+    // Atributos do Oponente baseados na escolha do jogador
+    private int vida = atributos.getVida();
+    private int recvida = atributos.getRecVida();
+    private int mana = atributos.getMana();
+    private int recmana = atributos.getRecMana();
+
+    /**
+     * Construtor da classe {@code Oponente} que inicializa o tipo do oponente com base
+     * na escolha feita no menu principal.
+     */
+    public Oponente() {
+        if (escolhaOponente == 1) {
+            tipoPlanta = new Planta();
+        } else if (escolhaOponente == 2) {
+            tipoFogo = new Fogo();
+        } else if (escolhaOponente == 3) {
+            tipoAgua = new Agua();
+        }
     }
 
-    atributosBasePokemon atributos = new atributosBasePokemon();
+    // Métodos para realizar ataques e calcular dano foram comentados
+    // porque dependem do tipo específico do oponente (Planta, Fogo, Água),
+    // e a lógica atual ainda não está implementada.
 
-    //pegando atributos da base (atributosBasePokemon)
-    private int vida = atributos.getvida();
-    private int recvida = atributos.getrecvida();
-    private int mana = atributos.getmana();
-    private int recmana = atributos.getrecmana();
-
-    /*public int ataqueNormal(String oponente){
-        int ataque_nomal = tipoPlanta.getataque_normal(oponente);
-        //oponente.vida = oponente.vida-ataque_nomal;
-        return tipoPlanta.getataque_normal(oponente);
+    /*
+    public int ataqueNormal(String oponente) {
+        // Exemplo de como o ataque normal poderia ser implementado:
+        // return tipoPlanta.getAtaqueNormal(oponente);
     }
 
-    public int ataquePrincipal(String oponente){
-        return tipoPlanta.getataque_principal(oponente);
+    public int ataquePrincipal(String oponente) {
+        // Exemplo de como o ataque principal poderia ser implementado:
+        // return tipoPlanta.getAtaquePrincipal(oponente);
     }
     
-    public int danoRecebido(String oponente){
-        return tipoPlanta.getdanoRecebido(oponente);
-    }*/
+    public int danoRecebido(String oponente) {
+        // Exemplo de como o dano recebido poderia ser implementado:
+        // return tipoPlanta.getDanoRecebido(oponente);
+    }
+    */
 }
