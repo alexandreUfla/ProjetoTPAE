@@ -1,50 +1,70 @@
 package pokedex.pokemon.tipo;
 
-public class agua {
+/**
+ * A classe {@code Agua} representa um Pokémon do tipo Água e contém métodos para calcular
+ * o dano causado e recebido em batalhas com outros tipos de Pokémon.
+ * <p>
+ * Esta classe contém três métodos principais:
+ * <ul>
+ * <li>{@link #getAtaqueNormal(String)} - calcula o dano de um ataque normal.
+ * <li>{@link #getAtaquePrincipal(String)} - calcula o dano de um ataque principal.
+ * <li>{@link #getDanoRecebido(String)} - calcula o dano recebido de um ataque de outro Pokémon.
+ * </ul>
+ */
+public class Agua {
     
-    private int ataque_normal;
-    private int ataque_principal;
+    private int ataqueNormal;
+    private int ataquePrincipal;
     private int danoRecebido;
-    //private String oponente = new String(); COMENTARIO: linha desnecessária por enquanto
-    
-    //calculo do valor do ataque normal
-    public int getataque_normal(String oponente){
-        
-        if(oponente == "folha"){
-            this.ataque_normal = 1;
-        }else if(oponente == "fogo"){
-            this.ataque_normal = 3;
-        }else{
-            this.ataque_normal = 2;
-        }
 
-        return this.ataque_normal;
+    /**
+     * Calcula o valor do ataque normal baseado no tipo do oponente.
+     *
+     * @param oponente o tipo do Pokémon oponente (ex: "folha", "fogo").
+     * @return o valor do ataque normal.
+     */
+    public int getAtaqueNormal(String oponente) {
+        if(oponente.equals("folha")) {
+            this.ataqueNormal = 1;
+        } else if(oponente.equals("fogo")) {
+            this.ataqueNormal = 3;
+        } else {
+            this.ataqueNormal = 2;
+        }
+        return this.ataqueNormal;
     }
 
-    //calculo do valor do ataque principal
-    public int getataque_principal(String oponente){
-        
-        if(oponente == "folha"){
-            this.ataque_principal = 3;
-        }else if(oponente == "fogo"){
-            this.ataque_principal = 5;
-        }else{
-            this.ataque_principal = 4;
+    /**
+     * Calcula o valor do ataque principal baseado no tipo do oponente.
+     *
+     * @param oponente o tipo do Pokémon oponente (ex: "folha", "fogo").
+     * @return o valor do ataque principal.
+     */
+    public int getAtaquePrincipal(String oponente) {
+        if(oponente.equals("folha")) {
+            this.ataquePrincipal = 3;
+        } else if(oponente.equals("fogo")) {
+            this.ataquePrincipal = 5;
+        } else {
+            this.ataquePrincipal = 4;
         }
-
-        return this.ataque_principal;
+        return this.ataquePrincipal;
     }
-    //calculo do valor do dano recebido
-    public int getdanoRecebido(String oponente){
-        
-        if(oponente == "folha"){
+
+    /**
+     * Calcula o valor do dano recebido baseado no tipo do oponente.
+     *
+     * @param oponente o tipo do Pokémon oponente (ex: "folha", "fogo").
+     * @return o valor do dano recebido.
+     */
+    public int getDanoRecebido(String oponente) {
+        if(oponente.equals("folha")) {
             this.danoRecebido = 5;
-        }else if(oponente == "fogo"){
+        } else if(oponente.equals("fogo")) {
             this.danoRecebido = 3;
-        }else{
+        } else {
             this.danoRecebido = 4;
         }
-
         return danoRecebido;
     }
     
